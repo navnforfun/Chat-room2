@@ -10,9 +10,9 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-//1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+//1571020257 - Nguyen Ngoc Anh CNTT15-04
 public abstract class ImageUtils {
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    //1571020257 - Nguyen Ngoc Anh CNTT15-04
     public static ImageIcon fitImageFromFile(JLabel label, File file){
         BufferedImage img = null;
         try {
@@ -28,7 +28,7 @@ public abstract class ImageUtils {
         }
         return null;
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    //1571020257 - Nguyen Ngoc Anh CNTT15-04
     public static class SetIconForLabel implements Runnable{
         private final String host, fileName;
         private final JLabel label;

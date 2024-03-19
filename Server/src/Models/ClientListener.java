@@ -2,7 +2,7 @@ package Models;
 
 import java.net.Socket;
 import java.io.*;
-//1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+// Ngoc Anh 1504
 public class ClientListener extends Client implements Runnable{
     private BufferedReader reader;
     private PrintWriter writer;
@@ -11,7 +11,7 @@ public class ClientListener extends Client implements Runnable{
     
     public boolean isRunning = true;
     
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public ClientListener(Socket socket){
         this.idClient = Client.currentID++;
         
@@ -49,7 +49,7 @@ public class ClientListener extends Client implements Runnable{
             }
         }).start();
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     //Handle listener
     @Override
     public void run() {
@@ -70,7 +70,7 @@ public class ClientListener extends Client implements Runnable{
             }
         }
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void handleMessage(String msgFromClient, String function, String data){
         switch(function){
             case "hashKey":{
@@ -273,7 +273,7 @@ public class ClientListener extends Client implements Runnable{
             }
         }
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void sendCommand(String msgCommand){
         this.writer.println(msgCommand);
     }

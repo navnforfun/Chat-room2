@@ -9,14 +9,14 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.file.Files;
-//1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+// Ngoc Anh 1504
 public class RunnableServerFile implements Runnable{
     private final File fileTarget; 
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public RunnableServerFile(File fileTarget) {
         this.fileTarget = fileTarget;
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     @Override
     public void run() {
         try {

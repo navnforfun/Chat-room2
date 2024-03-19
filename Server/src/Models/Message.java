@@ -2,13 +2,13 @@ package Models;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-//1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+// Ngoc Anh 1504
 public class Message {
     public int idSend;
     public String nameSend;
     public String message;
     public String time;
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public Message(int idSend, String nameSend, String message) {
         this.idSend = idSend;
         this.nameSend = nameSend;

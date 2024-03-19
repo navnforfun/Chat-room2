@@ -8,21 +8,21 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-//1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+// Ngoc Anh 1504
 public class Session{
     public static String host = "127.0.0.1";
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     private Socket socket;
     private BufferedReader reader;
     private PrintWriter writer;
     public boolean isConnected = false;
     public final Object monitor = new Object();
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public String personName;
     public String personID;
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     private final static Session session = new Session();
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public AuthenciationService authenciationService;
     public String hashKey;
     
@@ -41,7 +41,7 @@ public class Session{
     public static Session gI(){
         return Session.session;
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void set(Socket socket) {
         try {
             this.socket = socket;
@@ -51,7 +51,7 @@ public class Session{
             
         }
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void sendMessage(String message){
         if(Session.gI().authenciationService != null){
             try {
@@ -66,11 +66,11 @@ public class Session{
             e.printStackTrace();
         }
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public BufferedReader getReader() {
         return reader;
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void sendFile(File file){
         new Thread(new RunnableServerFile(file)).start();
         this.sendMessage("upload_file-" + file.getName().replaceAll("\\-", "_"));

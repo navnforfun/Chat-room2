@@ -5,16 +5,16 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-//1571020257 - Nguyễn Ngọc Đan Trường
+//1571020257 - Nguyen Ngoc Anh
 public class AuthenciationServiceImp extends UnicastRemoteObject implements AuthenciationService{
     public List<User> users = new ArrayList<>();
     public List<Session> threads = new ArrayList<>();
     public static ClientSocket clientSocket;
-    //1571020257 - Nguyễn Ngọc Đan Trường
+    //1571020257 - Nguyen Ngoc Anh
     public AuthenciationServiceImp() throws RemoteException{
         super();
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường
+    //1571020257 - Nguyen Ngoc Anh
     @Override
     public String login(String username, String password) {
         for(User u: users){
@@ -22,7 +22,7 @@ public class AuthenciationServiceImp extends UnicastRemoteObject implements Auth
         }
         return null;
     }
-//1571020257 - Nguyễn Ngọc Đan Trường
+//1571020257 - Nguyen Ngoc Anh
     @Override
     public boolean register(String username, String password, String fullName) {
         for(var u: users) if(u.username.equals(username)) return false;
@@ -30,7 +30,7 @@ public class AuthenciationServiceImp extends UnicastRemoteObject implements Auth
         System.out.println("[Register] " + username + " - " + password);
         return true;
     }
-//1571020257 - Nguyễn Ngọc Đan Trường
+//1571020257 - Nguyen Ngoc Anh
     @Override
     public String getFullname(String hashKey) {
         for(var u: users) if(u.getHashKey().equals(hashKey)){

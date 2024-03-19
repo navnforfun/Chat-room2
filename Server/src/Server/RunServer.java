@@ -1,9 +1,9 @@
 package Server;
 
 import Models.*;
-//1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+// Ngoc Anh 1504
 public class RunServer {
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public static void main(String[] args) {
 //        Properties properties = new Properties();
 //        properties.setProperty("file.encoding", "UTF-8");

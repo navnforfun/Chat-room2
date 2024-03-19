@@ -16,28 +16,28 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
-//1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+// Ngoc Anh 1504
 public class Service {
     public static long delayFreeResources = 3000;
     
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public List<ClientListener> clients = new ArrayList<>();
     public List<Room> rooms = new ArrayList<>();
     public List<Attachment> attachments = new ArrayList<>();
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public static String pathResources = "src/files/";
     private final static Service service = new Service();
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public static Service gI(){
         return service;
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void sendGlobalMessage(String command){
         for(ClientListener client: this.clients){
             client.sendCommand(command);
         }
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void removeClient(int id){
         for(ClientListener client: this.clients){
             if(client.idClient == id){
@@ -46,7 +46,7 @@ public class Service {
             }
         }
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public static class RunnableListenerCLient  implements Runnable{
         @Override
         public void run(){
@@ -64,7 +64,7 @@ public class Service {
             }
         }
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public static class RunnableServerFile implements Runnable{
         @Override
         public void run() {
@@ -109,7 +109,7 @@ public class Service {
         }
         
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public static class FileDownloader implements Runnable{
         private final ClientListener client;
         private final String fileName;

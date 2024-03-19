@@ -2,10 +2,10 @@ package Models;
 
 import java.util.ArrayList;
 import java.util.List;
-//1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+// Ngoc Anh 1504
 public class Room {
     public static int currentID = 0;
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public int id;
     public String nameRoom;
     public int idOwner;
@@ -13,38 +13,38 @@ public class Room {
     private final List<ClientListener> members = new ArrayList<>();
     private final List<Message> messages = new ArrayList<>();
     private final List<Attachment> attachments = new ArrayList<>();
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04       
+    // Ngoc Anh 1504       
     public Room(String nameRoom, int idOwner) {
         this.id = Room.currentID++;
         this.nameRoom = nameRoom;
         this.idOwner = idOwner;
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void addMember(ClientListener newClient){
         members.add(newClient);
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public List<ClientListener> getMembers(){
         return this.members;
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public List<Attachment> getAttachments(){
         return this.attachments;
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void removeAttachment(Attachment att){
         att.destruct();
         this.attachments.remove(att);
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void removeMember(ClientListener client){
         members.remove(client);
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public int getSize(){
         return members.size();
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public String getNameMemberByID(int id){
         if(id == -1) return "[Server]";
         String name = "Unknown";
@@ -55,22 +55,22 @@ public class Room {
         }
         return name;
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public static Room getRoomById(int id){
         for (Room r : Service.gI().rooms) {
             if(r.id == id) return r;
         }
         return null;
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public String getPassword() {
         return password;
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void setPassword(String password) {
         this.password = password;
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     
     public void loadMessagesToNewClient(ClientListener client){
         for(Message msg: messages){
@@ -78,7 +78,7 @@ public class Room {
             client.sendCommand(message);
         }
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void sendGlobalMessage(int idSend, String message){
         Message messageI = new Message(idSend,getNameMemberByID(idSend), message);
         String msg = String.format("new_message|%s %s: %s", getNameMemberByID(idSend), messageI.time, message);
@@ -89,13 +89,13 @@ public class Room {
         }
         this.messages.add(messageI);
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void sendGlobalCommand(String command){
         for(ClientListener client : members){
             client.sendCommand(command);
         }
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void updateListUserToClients(){
         if(this != null){
             String command = "persons|";
@@ -108,12 +108,12 @@ public class Room {
         }
     }
     
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void addNewAttachment(Attachment attachment){
         this.attachments.add(attachment);
         this.sendGlobalCommand("new_attachment|null");
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void kickPerson(int id){
         String namePerson = getNameMemberByID(id);
         boolean hasKick = false;
@@ -131,7 +131,7 @@ public class Room {
             this.sendGlobalMessage(-1 , msg);
         }
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void kickAllPerson(){
         for(ClientListener client : members){
             client.sendCommand("roomHasBeenDeleted|null");
@@ -140,11 +140,11 @@ public class Room {
         this.messages.clear();
     }
     
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public String toSendViaNetwork(){
         return String.format("%d#%s#%s#%d", id,nameRoom, getNameMemberByID(idOwner), getSize());
     }
-    //1571020257 - Nguyễn Ngọc Đan Trường CNTT15-04
+    // Ngoc Anh 1504
     public void freeAllResources(){
         this.kickAllPerson();
         for(Attachment att : attachments){
